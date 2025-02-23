@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+body {
+    background-color: oklch(0.88 0.06 254.67);
+    font-family: "Poppins", serif;
+}
+
+.text-grey {
+    color: rgb(73, 73, 73);
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .task-box{
+        width: 100%;
+        
+    }
+    .display{
+        padding-left: 0px;
+    }
+    .buttons button{
+        
+        margin: 2px 2px 2px 0px ;
+        padding: 1px 4px 1px 4px;
+    }
+    .finish-box{
+        width: 100%;
+    }
+}
