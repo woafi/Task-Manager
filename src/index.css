@@ -9,7 +9,12 @@ body {
     color: rgb(73, 73, 73);
 }
 
+@media screen and (min-width: 1000px){
+    .container{
+        width: calc(1/2 * 100%);
+    }
 
+}
 
 @media screen and (max-width: 600px) {
     .task-box{
