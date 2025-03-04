@@ -26,7 +26,7 @@ function App() {
     setTodo("")
     saveTodo(newTodos)
   }
-
+  //For pressing Enterkey
   const handleKeyDownAdd = (e) => {
     if (e.key === "Enter") {
       handleAdd()
@@ -84,7 +84,7 @@ function App() {
         <div className="addTodo flex">
           <input 
             type="text" 
-            value={todo} 
+            value={todo}
             onChange={handleChange} 
             onKeyDown={handleKeyDownAdd} 
             placeholder='Task Title' 
@@ -105,6 +105,7 @@ function App() {
           {todos.length === 0 && <div className='my-2'> Task is not added yet </div>}
           {todos.map((item, index) => (
             (showFinished || !item.isCompleted) && (
+
               <div key={index} className='task-box flex w-4/5 justify-between my-2 items-center'>
                 <input type="checkbox" checked={item.isCompleted} onChange={() => handleCheckbox(index)} />
 
@@ -140,6 +141,7 @@ function App() {
                   </button>
                 </div>
               </div>
+              
             )
           ))}
         </div>
