@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 function App() {
   const [todo, setTodo] = useState("")
@@ -78,7 +79,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container bg-blue-100 rounded-xl my-7 mx-auto p-5 min-h-[80vh]">
+      <div className="container bg-blue-100 rounded-xl my-7 mx-auto p-5 min-h-[81.5vh]">
         <h2 className='text-3xl font-bold logoTodo text-grey mb-3'>ToDo List</h2>
 
         <div className="addTodo flex">
@@ -146,6 +147,7 @@ function App() {
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   )
 }
