@@ -79,7 +79,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container bg-blue-100 rounded-xl my-7 mx-auto p-5 min-h-[81.5vh]">
+      <div className="container bg-blue-100 rounded-xl my-7 mx-auto p-5 min-h-[81.51vh]">
         <h2 className='text-3xl font-bold logoTodo text-grey mb-3'>ToDo List</h2>
 
         <div className="addTodo flex">
