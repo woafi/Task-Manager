@@ -10,14 +10,22 @@ function App() {
   const [showFinished, setshowFinished] = useState(true)
 
   useEffect(() => {
-    const todoString = localStorage.getItem("todos")
+    //For Getting todos array
+    const todoString = localStorage.getItem("todos");
     if (todoString) {
       setTodos(JSON.parse(todoString))
     }
+    //For getting showFinished state
+    const showFinishedString = localStorage.getItem("showFinishedTask");
+    if (showFinishedString){
+      setshowFinished(JSON.parse(showFinishedString));
+    }
   }, [])
 
+  //For Showing Finished Task
   const toggleFinished = () => {
-    setshowFinished(!showFinished)
+    setshowFinished(!showFinished);
+    showFinishedTask(!showFinished);
   }
 
   const handleAdd = () => {
@@ -72,8 +80,13 @@ function App() {
     saveTodo(updatedTodos)
   }
 
+  //For saving the TodoList
   const saveTodo = (todosToSave) => {
     localStorage.setItem("todos", JSON.stringify(todosToSave))
+  }
+  //For saving Show Finished Task State
+  const showFinishedTask = (bool) => {
+    localStorage.setItem("showFinishedTask", JSON.stringify(bool))
   }
 
   return (
@@ -83,13 +96,13 @@ function App() {
         <h2 className='text-3xl font-bold logoTodo text-grey mb-3'>ToDo List</h2>
 
         <div className="addTodo flex">
-          <input 
-            type="text" 
+          <input
+            type="text"
             value={todo}
-            onChange={handleChange} 
-            onKeyDown={handleKeyDownAdd} 
-            placeholder='Task Title' 
-            className='bg-white w-1/2 rounded-md px-3' 
+            onChange={handleChange}
+            onKeyDown={handleKeyDownAdd}
+            placeholder='Task Title'
+            className='bg-white w-1/2 rounded-md px-3'
           />
           <button onClick={handleAdd} className='bg-blue-400 hover:bg-blue-500 text-white p-3 py-1 rounded-md mx-6 font-bold cursor-pointer'>Add</button>
         </div>
@@ -111,12 +124,12 @@ function App() {
                 <input type="checkbox" checked={item.isCompleted} onChange={() => handleCheckbox(index)} />
 
                 {editIndex === index ? (
-                  <input 
-                    type="text" 
-                    value={editText} 
-                    onChange={(e) => setEditText(e.target.value)} 
-                    onKeyDown={(e) => handleKeyDownSave(e, index)} 
-                    className="bg-white w-2/3 px-2 rounded edit-tex" 
+                  <input
+                    type="text"
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    onKeyDown={(e) => handleKeyDownSave(e, index)}
+                    className="bg-white w-2/3 px-2 rounded edit-tex"
                   />
                 ) : (
                   <div className="text-box w-2/3 overflow-hidden">
@@ -142,12 +155,12 @@ function App() {
                   </button>
                 </div>
               </div>
-              
+
             )
           ))}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   )
 }
